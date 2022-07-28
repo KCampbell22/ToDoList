@@ -16,7 +16,7 @@ var getAndDisplayAllTasks = function () {
       response.tasks.forEach(function (task) {
         console.log(task);
         $("#todo-list").append(`
-        <div class="row task">
+        <div class="${(task.completed ? "row task task-completed" : "row task")}">
           <p class="col-xs-8">${task.content}</p>
           <button class="delete" data-id="${task.id}">Delete</button>
           <input type="checkbox" class="mark-complete" data-id="${task.id}" ${(task.completed ? "checked" : "")}>

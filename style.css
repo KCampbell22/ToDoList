@@ -1,0 +1,81 @@
+h2{
+    color: blue;
+}
+
+.delete {
+    margin-right: 5px;
+  }
+
+/* When Task is completed line through div */
+.row, .task, .task-completed {
+   
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.inner{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.mark-complete:checked ~ .task-completed {
+    text-decoration: line-through;
+}
+
+.task-completed {
+    background-color: rgba(36, 236, 36, 0.116);
+}
+
+.line-through {
+    text-decoration: line-through;
+}
+
+.container{
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+
+
+.row{
+    width: 100%;
+    border-bottom: 1px solid rgba(204, 204, 204, 0.656);
+}
+
+form{
+}
+
+.editMenu{
+    cursor: pointer;
+}
+
+.sub-flex{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+        width: 200px;
+        margin-left: auto;
+        margin-right: 33px;
+    
+}
+
+.status-menu{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 35px;
+}
+
+.remaining-tasks {
+    margin: 0;
+}
+
+p {
+    margin: auto;
+}

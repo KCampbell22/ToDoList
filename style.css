@@ -7,7 +7,7 @@ h2{
   }
 
 /* When Task is completed line through div */
-.row, .task, .task-completed {
+.row {
    
     display: flex;
     align-items: center;

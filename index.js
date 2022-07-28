@@ -10,24 +10,26 @@ var getAndDisplayAllTasks = function () {
       
       // check if the task is completed
 
-        
+    
 
       // loop through the tasks and display them
       response.tasks.forEach(function (task) {
         console.log(task);
-        $("#todo-list").append(
-          '<div class="task row"><p class="col-xs-8">' +
-            task.content +
-            '</p><button class="delete" data-id="' +
-            task.id +
-            '">Delete</button><input type="checkbox" class="mark-complete" data-id="' +
-            task.id +
-            '"' +
-            (task.completed ? "checked" : "") +
-            ">"
+        $("#todo-list").append(`
+        <div class="row task">
+          <p class="col-xs-8">${task.content}</p>
+          <button class="delete" data-id="${task.id}">Delete</button>
+          <input type="checkbox" class="mark-complete" data-id="${task.id}" ${(task.completed ? "checked" : "")}>
+        </div>
+        `
         );
+        // check if the task is completed
+        // if it is completed add the task-completed class
         
       });
+
+
+      
     },
     error: function (request, textStatus, errorMessage) {
       console.log(errorMessage);
@@ -81,7 +83,11 @@ var markTaskComplete = function (id) {
       "/mark_complete?api_key=495",
     dataType: "json",
     success: function (response, textStatus) {
-      response.task.completed = true;
+      
+      
+        // check if the task is completed
+        // if it is completed add the task-completed class
+        response.task.completed = true;
       getAndDisplayAllTasks();
     },
     error: function (request, textStatus, errorMessage) {
@@ -111,29 +117,11 @@ var markTaskActive = function (id) {
 
 
 $(document).ready(function () {
-  $(document).on("change", ".mark-complete", function () {
-    if (this.checked) {
-      //toggle the completed class if completed
-      // toggle line through for the paragraph
-      $(this).parent().parent().addClass("task-completed");
-      markTaskComplete($(this).data("id"));
-    } else {
-      markTaskActive($(this).data("id"));
-    }
-  });
+  
 
   $(document).on("click", ".delete", function () {
     deleteTask($(this).data("id"));
   });
-
-  $(".mark-complete").on('click', function (e) {
-    $('.task').each(function (i, el) {
-      if ($(this).find('.mark-complete').prop('checked')) {
-        $(this).css('background-color', 'rgba(36, 236, 36, 0.116)');
-      }
-    })
-  });
-
 
 
   $("#create-task").on("submit", function (e) {
@@ -173,10 +161,17 @@ $(document).ready(function () {
     $(this).addClass("active");
     $(this).removeClass("active");
   });
-
+  $(document).on('change', '.mark-complete', function () {
+    if (this.checked) {
+      $(this).parent().addClass("task-completed");
+       markTaskComplete($(this).data('id'));
+     } else {
+       markTaskActive($(this).data('id'));
+     }
+   });
   // check to see if .mark-complete is checked
   //if it is the background color of the row should be green
-
+  
 
   getAndDisplayAllTasks();
 });

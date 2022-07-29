@@ -16,7 +16,10 @@
     <div class="container">
       <div id="all" class="row">
         <div class="col-xs-12 inner">
-          <h2>To Do List</h2>
+          <div class="header col-12">
+            <h2>To Do List</h2>
+            <h3 class="date-txt"></h3>
+          </div>
           <form id="create-task">
             <input id="new-task-content" type="text" placeholder="new task" required/>
             <button>Create</button>
@@ -25,7 +28,7 @@
           <div id='todo-list'>
         </div>
         <div class="status-menu">
-          <p class="remaining-tasks"><p class="remaining-tasks"> :remaining tasks.</p></p>
+          <p><span class="remaining-tasks"></span> remaining tasks.</p>
           <div class="sub-flex">
             <button id="all-btn" class="filter">All</button>
             <button id="active-btn" class="filter">Active</button>

@@ -29,7 +29,6 @@ h2{
     border-radius: 9px;
     box-shadow: 0px 0px 15px #8080804f;
     background-color: #fdfdfd;
-    min-width: 500px;
 }
 .mark-complete:checked ~ .task-completed {
     text-decoration: line-through;
@@ -122,8 +121,9 @@ input[type=text]{
     height: 35px;
 }
 
-.remaining-tasks {
+.remaining-tasks, .status-menu p {
     margin: 0;
+    font-size: 1rem;
 }
 
 p {
